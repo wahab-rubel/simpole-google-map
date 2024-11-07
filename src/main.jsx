@@ -8,8 +8,10 @@ import NotFound from './components/NotFound/NotFound';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Services from './components/Services/Services';
-import Contact from './components/Contact/Contact';
+import ContactForm from './components/Contact/ContactForm';
 import Products from './components/Products/Products';
+import ProductDetails from './components/ProductDetails/ProductDetails';
+
 
 
 const router = createBrowserRouter([
@@ -32,11 +34,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/contact',
-        element: <Contact />
+        element: <ContactForm />
       },
       {
         path: '/products',
         element: <Products/>,
+        loader: () => fetch('/public/Data/Data.json')
+      },
+      {
+        path: '/productDetails',
+        element: <ProductDetails />,
         loader: () => fetch('/public/Data/Data.json')
       }
     ]
