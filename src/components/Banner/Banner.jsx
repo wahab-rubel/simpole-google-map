@@ -2,7 +2,7 @@ import React from 'react';
 
 function Banner({ onShopNowClick }) {
   return (
-    <section className="bg-purple-800 relative bg-cover bg-center h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center" >
+    <section className="bg-purple-800 relative bg-cover bg-center h-[600px] sm:h-[400px] lg:h-[700px] flex items-center justify-center" >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <img className='w-[200px] h-[150px] absolute bottom-4 border-[2px]' src='/public/images/banner.jpg' alt="" />
       <div className="relative z-10 text-center text-white max-w-2xl mx-auto p-4">

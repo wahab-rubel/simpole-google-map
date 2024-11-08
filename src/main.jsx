@@ -11,6 +11,7 @@ import Services from './components/Services/Services';
 import ContactForm from './components/Contact/ContactForm';
 import Products from './components/Products/Products';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import ShoppingCart from './components/Payment/ShoppingCart';
 
 
 
@@ -42,9 +43,13 @@ const router = createBrowserRouter([
         loader: () => fetch('/public/Data/Data.json')
       },
       {
-        path: '/productDetails',
+        path: '/products/:product_id',
         element: <ProductDetails />,
         loader: () => fetch('/public/Data/Data.json')
+      }, 
+      {
+        path: '/shoppingCart',
+        element: <ShoppingCart />
       }
     ]
   },

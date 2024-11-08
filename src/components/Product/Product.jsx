@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Product({ product }) {
  const {product_id, product_title, product_image, category, price, description, rating} = product;
@@ -23,9 +23,9 @@ function Product({ product }) {
             <div>Rating: {rating}</div>
             </div>
             <div className='flex justify-center items-center'>
-            <Link to={`/products/${product_id}`}>
+            <NavLink to={`/products/${product_id}`}>
             <button className="btn badge-outline bg-purple-700 mt-4 text-white font-bold">Show Details</button>
-            </Link>
+            </NavLink>
             </div>
        </div>
       </div>

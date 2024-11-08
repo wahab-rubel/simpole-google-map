@@ -36,6 +36,9 @@ function Navbar() {
                    <li>
                    <NavLink to="/products" className={({ isActive }) => isActive ? "bg-purple-950 p-2 rounded-lg" : ''}>Products</NavLink>
                    </li>
+                   <li>
+                   <NavLink to="/shoppingCart" className={({ isActive }) => isActive ? "bg-purple-950 p-2 rounded-lg" : ''}>Shopping Now</NavLink>
+                   </li>
                     </ul>
                 </nav>
 
