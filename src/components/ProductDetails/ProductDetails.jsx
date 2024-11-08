@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 import { useLoaderData, useParams } from 'react-router-dom'
+import { addToStoredCart, addToStoredWishList, getStoredWishList } from '../utils/localStorage';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function ProductDetails() {
  const {product_id} = useParams();
@@ -24,13 +28,17 @@ toast.success(`${product_title}`);
 
  const handleAddToWishlist = () => {
   if(!isInWishlist){
-   addToStoredWishlist(id);
+   addToStoredWishList(id);
    setIsInWishlist(true);
    GiToaster.success(`${product_title} added to wishlist`)
   }
  }
   return (
+
     <div className='lg:max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-52'>
+     <Helmet>
+      <title>Product | Details</title>
+     </Helmet>
       <div className="text-center bg-purple-500 text-white py-10 rounded-lg mb-8">
          <h1 className="text-4xl font-bold">Product Details</h1>
          <p className="mt-2">Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
@@ -58,6 +66,15 @@ toast.success(`${product_title}`);
            <span className="text-yellow-500 text-xl">⭐</span>
             <span className="ml-1 text-gray-700">{rating || "4.8"}</span>
           </div>
+          </div>
+          <div className='flex gap-4 mt-6'>
+           <button onClick={handleAddToCart}>Add To Cart</button>
+           <button onClick={handleAddToWishlist}
+           className={`px-6 py-2 rounded-lg font-semibold transition ${isInWishlist ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-500 text-white hover:bg-red-600'}`}
+           disabled={isInWishlist}>
+             ♥ {isInWishlist ? 'Added to Wishlist' : 'Add to Wishlist'}
+             <ToastContainer />
+           </button>
           </div>
         </div>
        </div>
